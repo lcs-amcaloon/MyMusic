@@ -10,9 +10,13 @@
 		CE95AB8227EE163800CC3564 /* MyMusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95AB7227EE163600CC3564 /* MyMusicApp.swift */; };
 		CE95AB8327EE163800CC3564 /* MyMusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95AB7227EE163600CC3564 /* MyMusicApp.swift */; };
 		CE95AB8427EE163800CC3564 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95AB7327EE163600CC3564 /* ContentView.swift */; };
-		CE95AB8527EE163800CC3564 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95AB7327EE163600CC3564 /* ContentView.swift */; };
 		CE95AB8627EE163800CC3564 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE95AB7427EE163800CC3564 /* Assets.xcassets */; };
 		CE95AB8727EE163800CC3564 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE95AB7427EE163800CC3564 /* Assets.xcassets */; };
+		CE95AB9527EE191E00CC3564 /* ListenedToo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95AB9427EE191E00CC3564 /* ListenedToo.swift */; };
+		CE95AB9727EE192900CC3564 /* WillListen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95AB9627EE192900CC3564 /* WillListen.swift */; };
+		CE95AB9927EE19B800CC3564 /* AddAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95AB9827EE19B800CC3564 /* AddAlbum.swift */; };
+		CE95AB9D27EE1DCB00CC3564 /* Listen Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95AB9C27EE1DCB00CC3564 /* Listen Status.swift */; };
+		CE95AB9F27EE1E5400CC3564 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95AB9E27EE1E5400CC3564 /* Album.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,11 @@
 		CE95AB7927EE163800CC3564 /* MyMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE95AB7F27EE163800CC3564 /* MyMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE95AB8127EE163800CC3564 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		CE95AB9427EE191E00CC3564 /* ListenedToo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenedToo.swift; sourceTree = "<group>"; };
+		CE95AB9627EE192900CC3564 /* WillListen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WillListen.swift; sourceTree = "<group>"; };
+		CE95AB9827EE19B800CC3564 /* AddAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlbum.swift; sourceTree = "<group>"; };
+		CE95AB9C27EE1DCB00CC3564 /* Listen Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Listen Status.swift"; sourceTree = "<group>"; };
+		CE95AB9E27EE1E5400CC3564 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +64,9 @@
 			isa = PBXGroup;
 			children = (
 				CE95AB7227EE163600CC3564 /* MyMusicApp.swift */,
-				CE95AB7327EE163600CC3564 /* ContentView.swift */,
+				CE95AB9027EE17FE00CC3564 /* Model */,
+				CE95AB9327EE183500CC3564 /* View Model */,
+				CE95AB9227EE182600CC3564 /* Views */,
 				CE95AB7427EE163800CC3564 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -76,6 +87,33 @@
 				CE95AB8127EE163800CC3564 /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		CE95AB9027EE17FE00CC3564 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE95AB9C27EE1DCB00CC3564 /* Listen Status.swift */,
+				CE95AB9E27EE1E5400CC3564 /* Album.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE95AB9227EE182600CC3564 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE95AB7327EE163600CC3564 /* ContentView.swift */,
+				CE95AB9427EE191E00CC3564 /* ListenedToo.swift */,
+				CE95AB9627EE192900CC3564 /* WillListen.swift */,
+				CE95AB9827EE19B800CC3564 /* AddAlbum.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CE95AB9327EE183500CC3564 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,7 +214,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE95AB9527EE191E00CC3564 /* ListenedToo.swift in Sources */,
 				CE95AB8427EE163800CC3564 /* ContentView.swift in Sources */,
+				CE95AB9727EE192900CC3564 /* WillListen.swift in Sources */,
+				CE95AB9D27EE1DCB00CC3564 /* Listen Status.swift in Sources */,
+				CE95AB9927EE19B800CC3564 /* AddAlbum.swift in Sources */,
+				CE95AB9F27EE1E5400CC3564 /* Album.swift in Sources */,
 				CE95AB8227EE163800CC3564 /* MyMusicApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,7 +228,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE95AB8527EE163800CC3564 /* ContentView.swift in Sources */,
 				CE95AB8327EE163800CC3564 /* MyMusicApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
