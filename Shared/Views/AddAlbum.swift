@@ -29,7 +29,7 @@ struct AddAlbum: View {
                     
                 }
             }
-            .navigationTitle("Add a Album")
+            .navigationTitle("Add an Album")
         }
     }
 }

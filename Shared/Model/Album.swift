@@ -12,11 +12,13 @@ class Album: Identifiable, ObservableObject {
     var AlbumName: String
     var Artist: String
     var ListenStatus: AlbumStatus
+    @Published var completedAlbum: Bool
     
-    internal init(id: UUID = UUID(), AlbumName: String, Artist: String, ListenStatus: AlbumStatus) {
+    internal init(id: UUID = UUID(), AlbumName: String, Artist: String, ListenStatus: AlbumStatus, completedAlbum: Bool) {
         self.id = id
         self.AlbumName = AlbumName
         self.Artist = Artist
         self.ListenStatus = ListenStatus
+        self.completedAlbum = completedAlbum
     }
 }

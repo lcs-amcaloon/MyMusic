@@ -8,7 +8,7 @@
 import Foundation
 
 enum AlbumStatus: String {
-    case willListen = "willListen"
-    case listened = "listened"
+    case willListen = "Will Listen"
+    case listened = "Listened"
 
 }
