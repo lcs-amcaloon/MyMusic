@@ -8,7 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var showingAddAlbum = false
+    
     var body: some View {
+        
+        //.toolbar {
+            //.sheet(isPresented: $showingAddTask) {
+                //AddTask(store: store, showing: $showingAddTask)
+            
         Text("Hello, world!")
             .padding()
     }
