@@ -18,10 +18,11 @@ struct Album_Cell: View {
         HStack{
             Text(album.AlbumName)
             Text(album.Artist)
-            Text(album.AlbumRating)
+            
+            if album.AlbumRating > 0 {
+                Text("Rating: \(album.AlbumRating)")
+            }
         }
-
-        
     }
 }
 
