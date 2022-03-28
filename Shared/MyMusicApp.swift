@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct MyMusicApp: App {
+    
+    @StateObject private var store = AlbumStore(albums: testData)
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                ContentView(store: store)
+            }
         }
     }
 }

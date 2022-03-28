@@ -9,11 +9,12 @@ import SwiftUI
 
 struct AddAlbum: View {
     
+    @ObservedObject var store: AlbumStore
+    
     @State private var AlbumName = ""
     @State private var Artist = ""
     @State private var ListenStatus = AlbumStatus.listened
-    @State private var ratingValue: Double = 0
-    @State private var completedAlbum: Bool = true
+    @State private var AlbumRating: Double = 0
     
     @Binding var showing: Bool
     
@@ -32,26 +33,34 @@ struct AddAlbum: View {
                     .pickerStyle(SegmentedPickerStyle())
                     if ListenStatus == AlbumStatus.listened{
                         
-                        Slider(value: $ratingValue, in: 1...10)
-                        Text("Album Rating: \(ratingValue, specifier: "%.2f")")
+                        Slider(value: $AlbumRating, in: 1...10)
+                        Text("Album Rating: \(AlbumRating, specifier: "%.2f")")
                     }
                 }
                 
             }
             .navigationTitle("Add an Album")
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button("Save") {
+                        saveAlbum()
+                    }
+                    .disabled(AlbumName.isEmpty)
+                }
+            }
         }
-        //ToolbarItem(placement: .cancellationAction) {
-            //Button("Cancel") {
-                //showing = false
-                
-                    
-            //}
-        //}
 }
 
+    func saveAlbum() {
+        store.albums.append(Album(AlbumName: AlbumName, Artist: Artist, ListenStatus: ListenStatus, AlbumRating: AlbumRating))
+        
+        showing = false
+    }
+    
+    
 struct AddAlbum_Previews: PreviewProvider {
     static var previews: some View {
-        AddAlbum(showing: .constant(true))
+        AddAlbum(store: testStore, showing: .constant(true))
     }
 }
 }

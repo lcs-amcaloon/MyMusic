@@ -12,13 +12,19 @@ class Album: Identifiable, ObservableObject {
     var AlbumName: String
     var Artist: String
     var ListenStatus: AlbumStatus
-    var completedAlbum: Bool
+    var AlbumRating: Double
     
-    internal init(id: UUID = UUID(), AlbumName: String, Artist: String, ListenStatus: AlbumStatus, completedAlbum: Bool) {
+    internal init(id: UUID = UUID(), AlbumName: String, Artist: String, ListenStatus: AlbumStatus, AlbumRating: Double) {
         self.id = id
         self.AlbumName = AlbumName
         self.Artist = Artist
         self.ListenStatus = ListenStatus
-        self.completedAlbum = completedAlbum
+        self.AlbumRating = AlbumRating
     }
 }
+
+let testData = [
+    Album(AlbumName: "Funny", Artist: "Jackson Taylor", ListenStatus: AlbumStatus.listened, AlbumRating: 7),
+    Album(AlbumName: "not funny", Artist: "Angus McAloon (No G)", ListenStatus: AlbumStatus.willListen, AlbumRating: 0)
+
+]
