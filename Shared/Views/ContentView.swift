@@ -20,46 +20,53 @@ struct ContentView: View {
     
     @State var listShouldUpdate = true
     
+    @State private var selectedTab = "One"
+    
     var body: some View {
-        
-        List {
-            
-            ForEach(store.albums) { album in
+        TabView(selection: $selectedTab) {
+            List {
                 
-                if showingCompletedAlbums {
-                    Album_Cell(album: album, triggerListUpdate: .constant(true))
+                ForEach(store.albums) { album in
+                    
+                    if showingCompletedAlbums {
+                        Album_Cell(album: album, triggerListUpdate: .constant(true))
+                    }                    
+                    
                 }
-                //else {
-                    
-                    //if album.completedAlbum == false {
-                        //Album_Cell(album: album, triggerListUpdate: $listShouldUpdate)
-                    //}
-                    
-                //}
-                
+                .onDelete(perform: store.deleteAlbums)
+                .onMove(perform: store.moveAlbums)
                 
             }
-            .onDelete(perform: store.deleteAlbums)
-            .onMove(perform: store.moveAlbums)
-            
-        }
-        .navigationTitle("Albums")
-        .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                Button("Add") {
-                    showingAddAlbum = true
+            .navigationTitle("Albums")
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button("Add") {
+                        showingAddAlbum = true
+                    }
+                }
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                    EditButton()
                 }
             }
-            
-            ToolbarItem(placement: .navigationBarLeading) {
-                EditButton()
+            .sheet(isPresented: $showingAddAlbum) {
+                AddAlbum(store: store, showing: $showingAddAlbum)
             }
-        }
-        .sheet(isPresented: $showingAddAlbum) {
-            AddAlbum(store: store, showing: $showingAddAlbum)
+                .onTapGesture {
+                    selectedTab = "Listened"
+                }
+                .tabItem {
+                    Label("One", systemImage: "Star")
+                }
+            
+            Text("Tab 2")
+                .tabItem {
+                    Label("Two", systemImage: "Circle")
+                }
         }
     }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
