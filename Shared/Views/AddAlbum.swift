@@ -47,8 +47,14 @@ struct AddAlbum: View {
                     }
                     .disabled(AlbumName.isEmpty)
                 }
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Cancel") {
+                        showing = false
+                    }
+                }
             }
         }
+        .interactiveDismissDisabled()
 }
 
     func saveAlbum() {
