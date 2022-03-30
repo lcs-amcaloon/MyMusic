@@ -17,6 +17,8 @@
 		CE95AB9927EE19B800CC3564 /* AddAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95AB9827EE19B800CC3564 /* AddAlbum.swift */; };
 		CE95AB9D27EE1DCB00CC3564 /* Listen Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95AB9C27EE1DCB00CC3564 /* Listen Status.swift */; };
 		CE95AB9F27EE1E5400CC3564 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE95AB9E27EE1E5400CC3564 /* Album.swift */; };
+		CEF0CE3427F49E9300B61EC7 /* WillListenAlbums.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF0CE3327F49E9300B61EC7 /* WillListenAlbums.swift */; };
+		CEF0CE3827F49F2B00B61EC7 /* ListenedAlbums.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF0CE3727F49F2B00B61EC7 /* ListenedAlbums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,8 @@
 		CE95AB9827EE19B800CC3564 /* AddAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlbum.swift; sourceTree = "<group>"; };
 		CE95AB9C27EE1DCB00CC3564 /* Listen Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Listen Status.swift"; sourceTree = "<group>"; };
 		CE95AB9E27EE1E5400CC3564 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		CEF0CE3327F49E9300B61EC7 /* WillListenAlbums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WillListenAlbums.swift; sourceTree = "<group>"; };
+		CEF0CE3727F49F2B00B61EC7 /* ListenedAlbums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenedAlbums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,8 @@
 				CE95AB7327EE163600CC3564 /* ContentView.swift */,
 				CE6E8F8827F23710000E22CE /* Album Cell.swift */,
 				CE95AB9827EE19B800CC3564 /* AddAlbum.swift */,
+				CEF0CE3327F49E9300B61EC7 /* WillListenAlbums.swift */,
+				CEF0CE3727F49F2B00B61EC7 /* ListenedAlbums.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -215,9 +221,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE6E8F8527F23294000E22CE /* Album Store.swift in Sources */,
+				CEF0CE3827F49F2B00B61EC7 /* ListenedAlbums.swift in Sources */,
 				CE95AB8427EE163800CC3564 /* ContentView.swift in Sources */,
 				CE95AB9D27EE1DCB00CC3564 /* Listen Status.swift in Sources */,
 				CE95AB9927EE19B800CC3564 /* AddAlbum.swift in Sources */,
+				CEF0CE3427F49E9300B61EC7 /* WillListenAlbums.swift in Sources */,
 				CE6E8F8927F23710000E22CE /* Album Cell.swift in Sources */,
 				CE95AB9F27EE1E5400CC3564 /* Album.swift in Sources */,
 				CE95AB8227EE163800CC3564 /* MyMusicApp.swift in Sources */,

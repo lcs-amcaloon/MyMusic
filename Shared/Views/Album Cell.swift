@@ -14,15 +14,19 @@ struct Album_Cell: View {
     @Binding var triggerListUpdate: Bool
     
     var body: some View {
-        
-        HStack{
-            Text(album.AlbumName)
-            Text(album.Artist)
+        VStack {
+            HStack{
+                Text("Album: \(album.AlbumName)")
+                Text("Artist: \(album.Artist)")
+                
+                            }
             
             if album.AlbumRating > 0 {
                 Text("Rating: \(album.AlbumRating)")
             }
+
         }
+
     }
 }
 

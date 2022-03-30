@@ -24,12 +24,14 @@ struct AddAlbum: View {
                 Form {
                     TextField("Album Name", text: $AlbumName)
                     TextField("Artist", text: $Artist)
+                    
                     Picker("ListenStatus", selection: $ListenStatus){
                         Text(AlbumStatus.listened.rawValue)
                             .tag(AlbumStatus.listened)
                         Text(AlbumStatus.willListen.rawValue)
                             .tag(AlbumStatus.willListen)
                     }
+                    
                     .pickerStyle(SegmentedPickerStyle())
                     if ListenStatus == AlbumStatus.listened{
                         
