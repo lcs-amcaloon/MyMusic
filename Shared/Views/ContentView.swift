@@ -29,7 +29,11 @@ struct ContentView: View {
                 ForEach(store.albums) { album in
                     
                     if showingCompletedAlbums {
-                        Album_Cell(album: album, triggerListUpdate: .constant(true))
+                        
+                        if album.AlbumRating > 0 {
+                            Album_Cell(album: album, triggerListUpdate: .constant(true))
+                        }
+
                     }                    
                     
                 }
@@ -37,18 +41,7 @@ struct ContentView: View {
                 .onMove(perform: store.moveAlbums)
                 
             }
-            .navigationTitle("Albums")
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    Button("Add") {
-                        showingAddAlbum = true
-                    }
-                }
-                
-                ToolbarItem(placement: .navigationBarLeading) {
-                    EditButton()
-                }
-            }
+            .navigationTitle("Albums You Have Listened To")
             .sheet(isPresented: $showingAddAlbum) {
                 AddAlbum(store: store, showing: $showingAddAlbum)
             }
@@ -56,13 +49,52 @@ struct ContentView: View {
                     selectedTab = "Listened"
                 }
                 .tabItem {
-                    Label("One", systemImage: "Star")
+                    Label("Album's Youv'e Listened To", systemImage: "Star")
                 }
             
-            Text("Tab 2")
-                .tabItem {
-                    Label("Two", systemImage: "Circle")
+            List {
+                
+                ForEach(store.albums) { album in
+                    
+                    if showingCompletedAlbums {
+                        
+                        if album.AlbumRating == 0 {
+                            Album_Cell(album: album, triggerListUpdate: .constant(true))
+                        }
+
+                    }
+                    
                 }
+                .onDelete(perform: store.deleteAlbums)
+                .onMove(perform: store.moveAlbums)
+                
+            }
+            .navigationTitle("Albums You Will Listen To")
+            .sheet(isPresented: $showingAddAlbum) {
+                AddAlbum(store: store, showing: $showingAddAlbum)
+            }
+                .onTapGesture {
+                    selectedTab = "Listened"
+                }
+                .tabItem {
+                    Label("Albums You Will Listent To", systemImage: "Circle")
+                }
+            
+                .tabItem {
+                    Label("Add Album", systemImage: "Circle")
+                }
+            
+        }
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button("Add") {
+                    showingAddAlbum = true
+                }
+            }
+            
+            ToolbarItem(placement: .navigationBarLeading) {
+                EditButton()
+            }
         }
     }
 }

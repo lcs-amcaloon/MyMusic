@@ -63,7 +63,6 @@ struct AddAlbum: View {
         showing = false
     }
     
-    
 struct AddAlbum_Previews: PreviewProvider {
     static var previews: some View {
         AddAlbum(store: testStore, showing: .constant(true))
