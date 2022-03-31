@@ -2,7 +2,7 @@
 //  Album.swift
 //  MyMusic (iOS)
 //
-//  Created by Angus McAloon on 2022-03-25.
+//  Created on 2022-03-25.
 //
 
 import Foundation

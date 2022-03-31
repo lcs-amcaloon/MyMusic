@@ -2,7 +2,7 @@
 //  WillListenAlbums.swift
 //  MyMusic (iOS)
 //
-//  Created by Angus McAloon on 2022-03-30.
+//  Created on 2022-03-30.
 //
 
 import SwiftUI
