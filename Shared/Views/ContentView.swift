@@ -23,8 +23,8 @@ struct ContentView: View {
     @State private var selectedTab = ""
     
     
-    
     var body: some View {
+        
         TabView(selection: $selectedTab) {
             
             ListenedAlbums(store: store.self)
@@ -32,7 +32,7 @@ struct ContentView: View {
                     selectedTab = "Listened"
                 }
                 .tabItem {
-                    Label("Have Listened to", systemImage: "star")
+                    Label("Have Listened to", systemImage: "music.note.list")
                 }
             
             WillListenAlbums(store: store.self)
@@ -40,7 +40,7 @@ struct ContentView: View {
                     selectedTab = "WillListen"
                 }
                 .tabItem {
-                    Label("Will Listent To", systemImage: "circle")
+                    Label("Will Listent To", systemImage: "text.insert")
                 }
         }
     }

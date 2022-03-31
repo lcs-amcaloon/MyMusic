@@ -14,18 +14,25 @@ struct Album_Cell: View {
     @Binding var triggerListUpdate: Bool
     
     var body: some View {
-        VStack {
-            HStack{
-                Text("Album: \(album.AlbumName)")
-                Text("Artist: \(album.Artist)")
-                
-                            }
+        VStack(alignment: .leading) {
+            HStack {
+                Text("Album: ").fontWeight(.bold)
+                Text(album.AlbumName)
+            }
+            HStack {
+                Text("Artist: ").fontWeight(.bold)
+                Text(album.Artist)
+            }
             
             if album.AlbumRating > 0 {
-                Text("Rating: \(album.AlbumRating)")
+                HStack {
+                    Text("Rating: ").fontWeight(.bold)
+                    Text("\(album.AlbumRating, specifier: "%.f")/10")
+                }
             }
 
         }
+        .padding(.horizontal)
 
     }
 }
