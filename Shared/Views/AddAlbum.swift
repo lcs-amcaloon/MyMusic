@@ -36,7 +36,7 @@ struct AddAlbum: View {
                     if ListenStatus == AlbumStatus.listened{
                         
                         Slider(value: $AlbumRating, in: 1...10)
-                        Text("Album Rating: \(AlbumRating, specifier: "%.2f")")
+                        Text("Album Rating: \(AlbumRating, specifier: "%.f")")
                     }
                 }
                 
@@ -60,6 +60,7 @@ struct AddAlbum: View {
 }
 
     func saveAlbum() {
+        
         store.albums.append(Album(AlbumName: AlbumName, Artist: Artist, ListenStatus: ListenStatus, AlbumRating: AlbumRating))
         
         showing = false
