@@ -35,7 +35,7 @@ struct AddAlbum: View {
                     .pickerStyle(SegmentedPickerStyle())
                     if ListenStatus == AlbumStatus.listened{
                         
-                        Slider(value: $AlbumRating, in: 1...10)
+                        Slider(value: $AlbumRating, in: 1...5)
                         Text("Album Rating: \(AlbumRating, specifier: "%.f")")
                     }
                 }
@@ -64,6 +64,7 @@ struct AddAlbum: View {
         store.albums.append(Album(AlbumName: AlbumName, Artist: Artist, ListenStatus: ListenStatus, AlbumRating: AlbumRating))
         
         showing = false
+        
     }
     
 struct AddAlbum_Previews: PreviewProvider {

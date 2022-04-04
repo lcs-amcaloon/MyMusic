@@ -15,10 +15,5 @@ enum ResultVisibility: String {
     case three = "3/10"
     case four = "4/10"
     case five = "5/10"
-    case six = "6/10"
-    case seven = "7/10"
-    case eight = "8/10"
-    case nine = "9/10"
-    case ten = "10/10"
     
 }

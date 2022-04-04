@@ -16,7 +16,7 @@ struct WillListenAlbums: View {
     @State var showingCompletedAlbums = true
     
     var body: some View {
-        NavigationView {
+        
             List {
                 
                 ForEach(store.albums) { album in
@@ -34,7 +34,6 @@ struct WillListenAlbums: View {
                 .onMove(perform: store.moveAlbums)
                 
             }
-            .navigationTitle("Will Listen to")
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button("Add") {
@@ -49,7 +48,7 @@ struct WillListenAlbums: View {
             .sheet(isPresented: $showingAddAlbum) {
                 AddAlbum(store: store, showing: $showingAddAlbum)
             }
-        }
+            .navigationTitle("Will Listen to")
     }
 }
 

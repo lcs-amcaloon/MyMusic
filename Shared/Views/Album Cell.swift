@@ -27,7 +27,7 @@ struct Album_Cell: View {
             if album.AlbumRating > 0 {
                 HStack {
                     Text("Rating: ").fontWeight(.bold)
-                    Text("\(album.AlbumRating, specifier: "%.f")/10")
+                    Text("\(album.AlbumRating, specifier: "%.f")/5")
                 }
             }
 

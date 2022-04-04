@@ -27,30 +27,27 @@ struct ContentView: View {
         
         TabView(selection: $selectedTab) {
             
-            ListenedAlbums(store: store.self)
-                .onTapGesture {
-                    selectedTab = "Listened"
-                }
-                .tabItem {
-                    Label("Have Listened to", systemImage: "music.note.list")
-                }
-            
-            WillListenAlbums(store: store.self)
-                .onTapGesture {
-                    selectedTab = "WillListen"
-                }
-                .tabItem {
-                    Label("Will Listent To", systemImage: "text.insert")
-                }
+            NavigationView {
+                ListenedAlbums(store: store.self)
+            }
+            .tabItem {
+                Label("Have Listened to", systemImage: "music.note.list")
+            }
+            NavigationView {
+                WillListenAlbums(store: store.self)
+            }
+            .tabItem {
+                Label("Will Listent To", systemImage: "text.insert")
+            }
         }
     }
-
+    
     
 }
 
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-            ContentView(store: testStore)
+        ContentView(store: testStore)
     }
 }

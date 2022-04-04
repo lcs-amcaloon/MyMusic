@@ -24,7 +24,7 @@ class Album: Identifiable, ObservableObject {
 }
 
 let testData = [
-    Album(AlbumName: "Coloring Book", Artist: "Chance the Rapper", ListenStatus: AlbumStatus.listened, AlbumRating: 7),
+    Album(AlbumName: "Coloring Book", Artist: "Chance the Rapper", ListenStatus: AlbumStatus.listened, AlbumRating: 4),
     Album(AlbumName: "Donda", Artist: "Kanye West", ListenStatus: AlbumStatus.willListen, AlbumRating: 0)
 
 ]

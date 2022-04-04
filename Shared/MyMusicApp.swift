@@ -14,9 +14,7 @@ struct MyMusicApp: App {
     
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                ContentView(store: store)
-            }
+            ContentView(store: store)
         }
     }
 }
