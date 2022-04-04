@@ -13,29 +13,25 @@ struct ListenedAlbums: View {
     
     @State private var showingAddAlbum = false
     
-    @State var results: [Album] = []
-    
     @State private var selectedResultVisibility: ResultVisibility = .all
+    
+    
     
     var body: some View {
         
         VStack {
-            //                List(filter(results, by: selectedResultVisibility))
-            List(results)
-            { album in
-                
-                //ForEach(store.albums) { album in
-                
-                //if album.AlbumRating > 0 {
-                Album_Cell(album: album, triggerListUpdate: .constant(true))
-                
-                //}
-                
-                //}
-                //.onDelete(perform: store.deleteAlbums)
-                // .onMove(perform: store.moveAlbums)
+
+            List {
+                ForEach(filter(store.albums, by: selectedResultVisibility)) { album in
+
+                    if album.AlbumRating > 0 {
+                        Album_Cell(album: album, triggerListUpdate: .constant(true))
+                    }
+                    
+                }
                 
             }
+            
             Text("Filter by...")
                 .font(Font.caption.smallCaps())
                 .foregroundColor(.secondary)
@@ -70,7 +66,7 @@ struct ListenedAlbums: View {
             ToolbarItem(placement: .navigationBarLeading) {
                 EditButton()
             }
-
+            
         }
         .sheet(isPresented: $showingAddAlbum) {
             AddAlbum(store: store, showing: $showingAddAlbum)

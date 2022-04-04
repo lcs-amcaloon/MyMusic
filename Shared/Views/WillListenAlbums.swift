@@ -15,12 +15,14 @@ struct WillListenAlbums: View {
     
     @State var showingCompletedAlbums = true
     
+    @State private var searchTerm = ""
+    
     var body: some View {
         
             List {
                 
-                ForEach(store.albums) { album in
-                    
+                ForEach(searchFilter(originalList: album.Artist, using: searchTerm)) { album in
+
                     if showingCompletedAlbums {
                         
                         if album.AlbumRating == 0 {
@@ -34,6 +36,7 @@ struct WillListenAlbums: View {
                 .onMove(perform: store.moveAlbums)
                 
             }
+            .searchable(text: $searchTerm)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button("Add") {
@@ -50,6 +53,18 @@ struct WillListenAlbums: View {
             }
             .navigationTitle("Will Listen to")
     }
+    
+    func searchFilter(originalList: [String], using term: String) -> [String] {
+        
+        if term.isEmpty {
+            return originalList
+        } else {
+            let temporaryList: [String] = [searchTerm]
+            return temporaryList
+        }
+        
+    }
+    
 }
 
 struct WillListenAlbums_Previews: PreviewProvider {
