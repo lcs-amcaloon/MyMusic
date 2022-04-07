@@ -24,7 +24,9 @@ struct ListenedAlbums: View {
             List {
                 ForEach(filter(store.albums, by: selectedResultVisibility)) { album in
 
-                    if album.AlbumRating > 0 {
+                    if album.AlbumRating == "0/5" {
+
+                    } else {
                         Album_Cell(album: album, triggerListUpdate: .constant(true))
                     }
                     
@@ -49,7 +51,7 @@ struct ListenedAlbums: View {
                 Text(ResultVisibility.five.rawValue)
                     .tag(ResultVisibility.five)
             }
-            .pickerStyle(.automatic)
+            .pickerStyle(.segmented)
             .padding(.horizontal)
             
             
@@ -84,15 +86,15 @@ struct ListenedAlbums: View {
             
             for currentResult in listOfResults {
                 
-                if visibilty == .one && currentResult.AlbumRating == 1 {
+                if visibilty == .one && currentResult.AlbumRating == "1/5" {
                     filteredResults.insert(currentResult, at: 0)
-                } else if visibilty == .two && currentResult.AlbumRating == 2 {
+                } else if visibilty == .two && currentResult.AlbumRating == "2/5" {
                     filteredResults.insert(currentResult, at: 0)
-                } else if visibilty == .three && currentResult.AlbumRating == 3 {
+                } else if visibilty == .three && currentResult.AlbumRating == "3/5" {
                     filteredResults.insert(currentResult, at: 0)
-                } else if visibilty == .four && currentResult.AlbumRating == 4 {
+                } else if visibilty == .four && currentResult.AlbumRating == "4/5" {
                     filteredResults.insert(currentResult, at: 0)
-                } else if visibilty == .five && currentResult.AlbumRating == 5 {
+                } else if visibilty == .five && currentResult.AlbumRating == "5/5" {
                     filteredResults.insert(currentResult, at: 0)
                 }
                 

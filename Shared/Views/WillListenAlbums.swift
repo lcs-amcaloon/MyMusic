@@ -21,11 +21,11 @@ struct WillListenAlbums: View {
         
             List {
                 
-                ForEach(searchFilter(originalList: album.Artist, using: searchTerm)) { album in
+                ForEach(searchFilter(originalList: store.albums, using: searchTerm)) { album in
 
                     if showingCompletedAlbums {
                         
-                        if album.AlbumRating == 0 {
+                        if album.AlbumRating == "0/5" {
                             Album_Cell(album: album, triggerListUpdate: .constant(true))
                         }
 
@@ -36,7 +36,6 @@ struct WillListenAlbums: View {
                 .onMove(perform: store.moveAlbums)
                 
             }
-            .searchable(text: $searchTerm)
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
                     Button("Add") {
@@ -52,15 +51,26 @@ struct WillListenAlbums: View {
                 AddAlbum(store: store, showing: $showingAddAlbum)
             }
             .navigationTitle("Will Listen to")
+            .searchable(text: $searchTerm, placement: .navigationBarDrawer(displayMode: .always))
     }
     
-    func searchFilter(originalList: [String], using term: String) -> [String] {
+
+    
+    func searchFilter(originalList: [Album], using term: String) -> [Album] {
         
         if term.isEmpty {
             return originalList
         } else {
-            let temporaryList: [String] = [searchTerm]
-            return temporaryList
+            
+            var filteredList: [Album] = [Album(AlbumName: "Donda", Artist: "Kanye West", ListenStatus: AlbumStatus.willListen, AlbumRating: "0/5")]
+            
+            for currentSession in originalList {
+                if currentSession.Artist.contains(term) {
+                    filteredList.append(currentSession)
+                }
+            }
+            filteredList.removeFirst()
+            return filteredList
         }
         
     }
