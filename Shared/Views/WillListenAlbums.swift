@@ -13,8 +13,6 @@ struct WillListenAlbums: View {
     
     @State private var showingAddAlbum = false
     
-    @State var showingCompletedAlbums = true
-    
     @State private var searchTerm = ""
     
     var body: some View {
@@ -22,14 +20,10 @@ struct WillListenAlbums: View {
             List {
                 
                 ForEach(searchFilter(originalList: store.albums, using: searchTerm)) { album in
-
-                    if showingCompletedAlbums {
                         
                         if album.AlbumRating.rawValue == "0/5" {
                             Album_Cell(album: album, triggerListUpdate: .constant(true))
                         }
-
-                    }
                     
                 }
                 
