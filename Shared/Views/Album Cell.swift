@@ -24,12 +24,12 @@ struct Album_Cell: View {
                 Text(album.Artist)
             }
             
-            if album.AlbumRating == "0/5" {
+            if album.AlbumRating.rawValue == "0/5" {
 
             } else {
                 HStack {
                     Text("Rating: ").fontWeight(.bold)
-                    Text("\(album.AlbumRating)")
+                    Text("\(album.AlbumRating.rawValue)")
                 }
             }
 

@@ -8,13 +8,14 @@
 import Foundation
 
 class Album: Identifiable, ObservableObject {
+    
     var id = UUID()
     var AlbumName: String
     var Artist: String
     var ListenStatus: AlbumStatus
-    var AlbumRating: String
+    var AlbumRating: Rating
     
-    internal init(id: UUID = UUID(), AlbumName: String, Artist: String, ListenStatus: AlbumStatus, AlbumRating: String) {
+    internal init(id: UUID = UUID(), AlbumName: String, Artist: String, ListenStatus: AlbumStatus, AlbumRating: Rating) {
         self.id = id
         self.AlbumName = AlbumName
         self.Artist = Artist
@@ -24,7 +25,7 @@ class Album: Identifiable, ObservableObject {
 }
 
 let testData = [
-    Album(AlbumName: "Coloring Book", Artist: "Chance the Rapper", ListenStatus: AlbumStatus.listened, AlbumRating: "4/5"),
-    Album(AlbumName: "Donda", Artist: "Kanye West", ListenStatus: AlbumStatus.willListen, AlbumRating: "0/5")
+    Album(AlbumName: "Coloring Book", Artist: "Chance the Rapper", ListenStatus: AlbumStatus.listened, AlbumRating: Rating.four),
+    Album(AlbumName: "Donda", Artist: "Kanye West", ListenStatus: AlbumStatus.willListen, AlbumRating: Rating.zero)
 
 ]

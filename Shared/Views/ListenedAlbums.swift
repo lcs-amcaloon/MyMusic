@@ -24,9 +24,7 @@ struct ListenedAlbums: View {
             List {
                 ForEach(filter(store.albums, by: selectedResultVisibility)) { album in
 
-                    if album.AlbumRating == "0/5" {
-
-                    } else {
+                    if album.AlbumRating.rawValue != "0/5" {
                         Album_Cell(album: album, triggerListUpdate: .constant(true))
                     }
                     
@@ -65,10 +63,6 @@ struct ListenedAlbums: View {
                 }
             }
             
-            ToolbarItem(placement: .navigationBarLeading) {
-                EditButton()
-            }
-            
         }
         .sheet(isPresented: $showingAddAlbum) {
             AddAlbum(store: store, showing: $showingAddAlbum)
@@ -86,15 +80,15 @@ struct ListenedAlbums: View {
             
             for currentResult in listOfResults {
                 
-                if visibilty == .one && currentResult.AlbumRating == "1/5" {
+                if visibilty == .one && currentResult.AlbumRating.rawValue == "1/5" {
                     filteredResults.insert(currentResult, at: 0)
-                } else if visibilty == .two && currentResult.AlbumRating == "2/5" {
+                } else if visibilty == .two && currentResult.AlbumRating.rawValue == "2/5" {
                     filteredResults.insert(currentResult, at: 0)
-                } else if visibilty == .three && currentResult.AlbumRating == "3/5" {
+                } else if visibilty == .three && currentResult.AlbumRating.rawValue == "3/5" {
                     filteredResults.insert(currentResult, at: 0)
-                } else if visibilty == .four && currentResult.AlbumRating == "4/5" {
+                } else if visibilty == .four && currentResult.AlbumRating.rawValue == "4/5" {
                     filteredResults.insert(currentResult, at: 0)
-                } else if visibilty == .five && currentResult.AlbumRating == "5/5" {
+                } else if visibilty == .five && currentResult.AlbumRating.rawValue == "5/5" {
                     filteredResults.insert(currentResult, at: 0)
                 }
                 

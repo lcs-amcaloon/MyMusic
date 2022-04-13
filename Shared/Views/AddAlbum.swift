@@ -14,7 +14,7 @@ struct AddAlbum: View {
     @State private var AlbumName = ""
     @State private var Artist = ""
     @State private var ListenStatus = AlbumStatus.listened
-    @State private var AlbumRating = ""
+    @State private var AlbumRating = Rating.zero
     
     @Binding var showing: Bool
     
@@ -37,19 +37,16 @@ struct AddAlbum: View {
 
                         Picker("Rating", selection: $AlbumRating){
                             Text("1/5")
-                                .tag(ResultVisibility.one)
+                                .tag(Rating.one)
                             Text("2/5")
-                                .tag(ResultVisibility.two)
+                                .tag(Rating.two)
                             Text("3/5")
-                                .tag(ResultVisibility.three)
+                                .tag(Rating.three)
                             Text("4/5")
-                                .tag(ResultVisibility.four)
+                                .tag(Rating.four)
                             Text("5/5")
-                                .tag(ResultVisibility.five)
+                                .tag(Rating.five)
                         }
-                        
-                        //Slider(value: $AlbumRating, in: 1...5)
-                        //Text("Album Rating: \(AlbumRating, specifier: "%.f")")
                     }
                 }
                 

@@ -15,18 +15,6 @@ class AlbumStore: ObservableObject {
         self.albums = albums
     }
     
-    func deleteAlbums(at offsets: IndexSet){
-        
-        albums.remove(atOffsets: offsets)
-        
-    }
-    
-    func moveAlbums(from source: IndexSet, to destination: Int) {
-        
-        albums.move(fromOffsets: source, toOffset: destination)
-        
-    }
-    
 }
 
 var testStore = AlbumStore(albums: testData)

@@ -25,15 +25,13 @@ struct WillListenAlbums: View {
 
                     if showingCompletedAlbums {
                         
-                        if album.AlbumRating == "0/5" {
+                        if album.AlbumRating.rawValue == "0/5" {
                             Album_Cell(album: album, triggerListUpdate: .constant(true))
                         }
 
                     }
                     
                 }
-                .onDelete(perform: store.deleteAlbums)
-                .onMove(perform: store.moveAlbums)
                 
             }
             .toolbar {
@@ -41,10 +39,6 @@ struct WillListenAlbums: View {
                     Button("Add") {
                         showingAddAlbum = true
                     }
-                }
-                
-                ToolbarItem(placement: .navigationBarLeading) {
-                    EditButton()
                 }
             }
             .sheet(isPresented: $showingAddAlbum) {
@@ -62,7 +56,7 @@ struct WillListenAlbums: View {
             return originalList
         } else {
             
-            var filteredList: [Album] = [Album(AlbumName: "Donda", Artist: "Kanye West", ListenStatus: AlbumStatus.willListen, AlbumRating: "0/5")]
+            var filteredList: [Album] = [Album(AlbumName: "Donda", Artist: "Kanye", ListenStatus: AlbumStatus.willListen, AlbumRating: Rating.zero)]
             
             for currentSession in originalList {
                 if currentSession.Artist.contains(term) {
